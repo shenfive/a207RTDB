@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     func getAppName(){
         let ref = Database.database().reference()
-        ref.child("app").child("name").observeSingleEvent(of: .value) { (snapshot) in
+        ref.child("app").child("name").observe(.value) {  (snapshot) in
             self.appNameLabel.text = snapshot.value as? String
         }
         
