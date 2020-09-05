@@ -41,7 +41,30 @@ class ViewController: UIViewController {
     }
     @IBAction func goNextPage(_ sender: Any) {
         print("click next Page")
+        
+        guard let nicknameString = nickname.text else{
+            return
+        }
+        
+        if nicknameString.count <= 3 {
+            self.alertToUser(message: "請輸入三個字以上的字元")
+            return
+        }
+        
+        if appNameLabel.text == "未登入"{
+            alertToUser(message: "請檢查網路")
+            return
+        }
+        
+        
+        
     }
-    
 }
-
+extension UIViewController{
+    func alertToUser(message:String){
+        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
+        let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okBtn)
+        self.present(alert, animated: true, completion: nil)
+    }
+}
