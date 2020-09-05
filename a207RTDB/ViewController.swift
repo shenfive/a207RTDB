@@ -33,7 +33,7 @@ class ViewController: UIViewController {
         }
         
         
-        ref.child("app").child("loginTime").setValue(ServerValue.timestamp())
+        ref.child("app").child("loginTime").childByAutoId().setValue(ServerValue.timestamp())
         
         
     }
