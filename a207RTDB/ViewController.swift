@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var appNameLabel: UILabel!
     
+    @IBOutlet weak var nickname: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
         }
         
     }
+    
 
     func getAppName(){
         let ref = Database.database().reference()
@@ -37,6 +39,9 @@ class ViewController: UIViewController {
         
         
     }
-
+    @IBAction func goNextPage(_ sender: Any) {
+        print("click next Page")
+    }
+    
 }
 
