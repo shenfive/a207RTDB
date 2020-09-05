@@ -12,16 +12,27 @@ import Firebase
 class ViewController: UIViewController {
 
     
+    @IBOutlet weak var appNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var ref = Database.database().reference()
-        ref.child("app").child("name").observeSingleEvent(of: .value) { (snapshot) in
-            print(snapshot.value as! String)
+        
+        Auth.auth().signInAnonymously(completion: nil)
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user{
+                self.getAppName()
+            }
         }
         
     }
 
+    func getAppName(){
+        var ref = Database.database().reference()
+        ref.child("app").child("name").observeSingleEvent(of: .value) { (snapshot) in
+            self.appNameLabel.text = snapshot.value as? String
+            
+        }
+    }
 
 }
 
