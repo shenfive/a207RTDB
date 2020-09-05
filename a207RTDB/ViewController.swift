@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         
         Auth.auth().signInAnonymously(completion: nil)
         Auth.auth().addStateDidChangeListener { (auth, user) in
-            if let user = user{
+            if user != nil{
                 self.getAppName()
             }
         }
@@ -27,11 +27,16 @@ class ViewController: UIViewController {
     }
 
     func getAppName(){
-        var ref = Database.database().reference()
+        let ref = Database.database().reference()
         ref.child("app").child("name").observeSingleEvent(of: .value) { (snapshot) in
             self.appNameLabel.text = snapshot.value as? String
-            
         }
+        
+        let time = Date().timeIntervalSince1970
+        
+        ref.child("app").child("loginTime").setValue("Hello")
+        
+        
     }
 
 }
