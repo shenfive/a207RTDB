@@ -32,9 +32,8 @@ class ViewController: UIViewController {
             self.appNameLabel.text = snapshot.value as? String
         }
         
-        let time = Date().timeIntervalSince1970
         
-        ref.child("app").child("loginTime").setValue("Hello")
+        ref.child("app").child("loginTime").setValue(ServerValue.timestamp())
         
         
     }
