@@ -43,9 +43,9 @@ class ViewController: UIViewController {
             self.appNameLabel.text = snapshot.value as? String
         }
         
-        
-        ref.child("app").child("loginTime").childByAutoId().setValue(ServerValue.timestamp())
-        
+//        
+//        ref.child("app").child("loginTime").childByAutoId().setValue(ServerValue.timestamp())
+//        
         
     }
     @IBAction func goNextPage(_ sender: Any) {
