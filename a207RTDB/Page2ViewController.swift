@@ -17,6 +17,7 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var nickname = ""
     
     var subjs:[String] = []
+    var keys:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +37,17 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let subRef = Database.database().reference(withPath: "subjs")
         subRef.observeSingleEvent(of: .value) { (snapshot) in
             self.subjs.removeAll()
+            self.keys.removeAll()
             for item in snapshot.children{
                 if let theItem = item as? DataSnapshot{
                     if let sub = theItem.childSnapshot(forPath: "sub").value as? String{
                         self.subjs.append(sub)
                     }
+                    self.keys.append(theItem.key)
                 }
             }
             self.page2TableView.reloadData()
         }
-        
-        
-        
     }
     
     //MARK:TableView Delegate
@@ -59,6 +59,11 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cell = UITableViewCell()
         cell.textLabel?.text = subjs[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(keys[indexPath.row])
+        print(subjs[indexPath.row])
     }
     
     
