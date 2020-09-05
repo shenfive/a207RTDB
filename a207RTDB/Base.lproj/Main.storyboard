@@ -51,7 +51,7 @@
                     <connections>
                         <outlet property="appNameLabel" destination="t4t-mj-UAy" id="Fgu-NG-YL9"/>
                         <outlet property="nickname" destination="cfi-q8-NBc" id="y4r-mE-a6a"/>
-                        <segue destination="4cf-Wq-VVm" kind="show" identifier="" id="nm7-HB-cuN"/>
+                        <segue destination="4cf-Wq-VVm" kind="show" identifier="goPage2" id="nm7-HB-cuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -27,6 +27,15 @@ class ViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goPage2":
+            let nextVC = segue.destination as! Page2ViewController
+            nextVC.nickname = nickname.text!
+        default:
+            break
+        }
+    }
 
     func getAppName(){
         let ref = Database.database().reference()
@@ -42,12 +51,14 @@ class ViewController: UIViewController {
     @IBAction func goNextPage(_ sender: Any) {
         print("click next Page")
         
+//        let nicknameString = nickname.text
+        
         guard let nicknameString = nickname.text else{
             return
         }
         
         if nicknameString.count <= 3 {
-            self.alertToUser(message: "請輸入三個字以上的字元")
+            alertToUser(message: "請輸入三個字以上的字元")
             return
         }
         
@@ -56,15 +67,9 @@ class ViewController: UIViewController {
             return
         }
         
+        performSegue(withIdentifier: "goPage2", sender: self)
         
         
     }
 }
-extension UIViewController{
-    func alertToUser(message:String){
-        let alert = UIAlertController(title: "提示", message: message, preferredStyle: .alert)
-        let okBtn = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okBtn)
-        self.present(alert, animated: true, completion: nil)
-    }
-}
+
