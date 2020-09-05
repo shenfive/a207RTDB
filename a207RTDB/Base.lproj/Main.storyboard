@@ -97,14 +97,54 @@
                     <view key="view" contentMode="scaleToFill" id="bhy-PN-0uJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ISW-vc-CF5">
+                                <rect key="frame" x="20" y="99" width="308" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="TwP-34-VZP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbn-cF-eN8">
+                                <rect key="frame" x="348" y="88" width="66" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="BoZ-Au-11c"/>
+                                    <constraint firstAttribute="height" constant="44" id="HEn-xM-ifQ"/>
+                                </constraints>
+                                <state key="normal" title="留言"/>
+                                <connections>
+                                    <action selector="submit:" destination="NXw-Xv-dri" eventType="touchUpInside" id="NO3-iL-K1J"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-TI-gU4">
+                                <rect key="frame" x="0.0" y="153" width="414" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zbn-cF-eN8" firstAttribute="leading" secondItem="ISW-vc-CF5" secondAttribute="trailing" constant="20" id="1km-dE-dFB"/>
+                            <constraint firstItem="unu-1s-8vg" firstAttribute="bottom" secondItem="ovJ-TI-gU4" secondAttribute="bottom" id="5UZ-lP-5ik"/>
+                            <constraint firstItem="ovJ-TI-gU4" firstAttribute="leading" secondItem="unu-1s-8vg" secondAttribute="leading" id="8Ce-at-mwx"/>
+                            <constraint firstItem="ISW-vc-CF5" firstAttribute="leading" secondItem="unu-1s-8vg" secondAttribute="leading" constant="20" id="FUp-7j-jAJ"/>
+                            <constraint firstItem="unu-1s-8vg" firstAttribute="trailing" secondItem="ovJ-TI-gU4" secondAttribute="trailing" id="gn1-Fg-USk"/>
+                            <constraint firstItem="zbn-cF-eN8" firstAttribute="top" secondItem="unu-1s-8vg" secondAttribute="top" id="lto-Ja-BrV"/>
+                            <constraint firstItem="ovJ-TI-gU4" firstAttribute="top" secondItem="ISW-vc-CF5" secondAttribute="bottom" constant="20" id="obF-F5-n1L"/>
+                            <constraint firstItem="zbn-cF-eN8" firstAttribute="trailing" secondItem="unu-1s-8vg" secondAttribute="trailing" id="pfZ-qs-wvM"/>
+                            <constraint firstItem="ISW-vc-CF5" firstAttribute="top" secondItem="unu-1s-8vg" secondAttribute="top" constant="11" id="uIT-Ob-ytA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="unu-1s-8vg"/>
                     </view>
                     <navigationItem key="navigationItem" id="AN6-x0-8Bl"/>
+                    <connections>
+                        <outlet property="messageTF" destination="ISW-vc-CF5" id="Cf5-XY-aQl"/>
+                        <outlet property="page3TableView" destination="ovJ-TI-gU4" id="6MA-c6-38H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEd-eC-OPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2787" y="94"/>
+            <point key="canvasLocation" x="2786.9565217391305" y="93.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jyL-jL-mMt">
