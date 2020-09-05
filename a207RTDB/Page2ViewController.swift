@@ -9,8 +9,11 @@
 import UIKit
 import Firebase
 
-class Page2ViewController: UIViewController {
+class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    
+
+    @IBOutlet weak var page2TableView: UITableView!
     var nickname = ""
     
     var subjs:[String] = []
@@ -19,7 +22,10 @@ class Page2ViewController: UIViewController {
         super.viewDidLoad()
 
         print("nickname is \(nickname)")
-        // Do any additional setup after loading the view.
+        
+        page2TableView.delegate = self
+        page2TableView.dataSource = self
+        
         
         readSubjs()
         
@@ -33,16 +39,28 @@ class Page2ViewController: UIViewController {
             for item in snapshot.children{
                 if let theItem = item as? DataSnapshot{
                     if let sub = theItem.childSnapshot(forPath: "sub").value as? String{
-                        print(sub)
                         self.subjs.append(sub)
                     }
                 }
             }
+            self.page2TableView.reloadData()
         }
         
         
         
     }
     
-
+    //MARK:TableView Delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = subjs[indexPath.row]
+        return cell
+    }
+    
+    
+    
 }

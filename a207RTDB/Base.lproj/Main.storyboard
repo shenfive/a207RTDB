@@ -65,14 +65,29 @@
                     <view key="view" contentMode="scaleToFill" id="88d-Hd-vFc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QJQ-4C-2Jq">
+                                <rect key="frame" x="0.0" y="176" width="414" height="686"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QJQ-4C-2Jq" firstAttribute="top" secondItem="zEM-Ha-Nkq" secondAttribute="top" constant="88" id="Dak-SJ-BZs"/>
+                            <constraint firstItem="QJQ-4C-2Jq" firstAttribute="leading" secondItem="zEM-Ha-Nkq" secondAttribute="leading" id="E61-mS-2Ro"/>
+                            <constraint firstItem="QJQ-4C-2Jq" firstAttribute="trailing" secondItem="zEM-Ha-Nkq" secondAttribute="trailing" id="NXL-XG-wms"/>
+                            <constraint firstItem="zEM-Ha-Nkq" firstAttribute="bottom" secondItem="QJQ-4C-2Jq" secondAttribute="bottom" id="vPe-2s-6k0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zEM-Ha-Nkq"/>
                     </view>
                     <navigationItem key="navigationItem" id="yUs-76-0JZ"/>
+                    <connections>
+                        <outlet property="page2TableView" destination="QJQ-4C-2Jq" id="wUE-Xw-XoN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mtf-00-UPT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912" y="98"/>
+            <point key="canvasLocation" x="1911.594202898551" y="97.767857142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jyL-jL-mMt">
