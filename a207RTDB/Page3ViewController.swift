@@ -9,11 +9,24 @@
 import UIKit
 import Firebase
 
-class Page3ViewController: UIViewController {
+class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return msgs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = msgs[indexPath.row]
+        return cell
+    }
+    
     
     var nickName = ""
     var key = ""
     var subject = ""
+    var msgs:[String] = []
+    
+    
     
     @IBOutlet weak var messageTF: UITextField!
     @IBOutlet weak var page3TableView: UITableView!
@@ -23,6 +36,24 @@ class Page3ViewController: UIViewController {
 
         print("sub:\(subject)\nkey:\(key)\nnickname:\(nickName)")
         self.title = subject
+        
+        page3TableView.delegate = self
+        page3TableView.dataSource = self
+        
+        let ref = Database.database().reference().child("disc").child(key)
+        ref.observe(.value) { (snapshot) in
+            self.msgs.removeAll()
+            for item in snapshot.children{
+                if let theItem = item as? DataSnapshot{
+                    if let sub = theItem.childSnapshot(forPath: "msg").value as? String{
+                        self.msgs.append(sub)
+                    }
+                }
+            }
+            self.page3TableView.reloadData()
+        }
+        
+        
     }
     
     @IBAction func submit(_ sender: Any) {
