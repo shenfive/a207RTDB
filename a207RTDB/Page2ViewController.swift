@@ -19,6 +19,10 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var subjs:[String] = []
     var keys:[String] = []
     
+    var selectedKey = ""
+    var selectedSubject = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,6 +35,20 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         readSubjs()
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "goPage3":
+            let nextVC = segue.destination as! Page3ViewController
+            nextVC.key = selectedKey
+            nextVC.subject = selectedSubject
+            nextVC.nickName = nickname
+            
+        default:
+            break
+        }
+    }
+    
     
     func readSubjs(){
         
@@ -64,6 +82,11 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(keys[indexPath.row])
         print(subjs[indexPath.row])
+        selectedKey = keys[indexPath.row]
+        selectedSubject = subjs[indexPath.row]
+        
+        performSegue(withIdentifier: "goPage3", sender: self)
+        
     }
     
     
