@@ -16,7 +16,7 @@ class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = msgs[indexPath.row]
+        cell.textLabel?.text = msgs[indexPath.row]["msg"] as? String
         return cell
     }
     
@@ -24,7 +24,7 @@ class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDel
     var nickName = ""
     var key = ""
     var subject = ""
-    var msgs:[String] = []
+    var msgs:[[String:Any]] = []
     
     
     
@@ -45,11 +45,22 @@ class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDel
             self.msgs.removeAll()
             for item in snapshot.children{
                 if let theItem = item as? DataSnapshot{
-                    if let sub = theItem.childSnapshot(forPath: "msg").value as? String{
-                        self.msgs.append(sub)
+                    if let msg = theItem.childSnapshot(forPath: "msg").value as? String,
+                        let nickname = theItem.childSnapshot(forPath: "nickname").value as? String,
+                        let time = theItem.childSnapshot(forPath: "time").value as? Double{
+                        let thedata = ["msg":msg,"nickname":nickname,"time":time] as [String : Any]
+                        self.msgs.append(thedata)
+                        print(nickname)
+                    
                     }
                 }
             }
+            self.msgs.sort { (a, b) -> Bool in
+                let theA = a["time"] as! Double
+                let theB = b["time"] as! Double
+                return theA > theB
+            }
+            
             self.page3TableView.reloadData()
         }
         
