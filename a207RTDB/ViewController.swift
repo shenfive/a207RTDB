@@ -18,12 +18,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "firstPageTitle".localize()
+            
+            //NSLocalizedString("firstPageTitle"  , comment: "")
+        
+        
         Auth.auth().signInAnonymously(completion: nil)
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil{
                 self.getAppName()
             }
         }
+        
+      
+        
         
     }
     
@@ -62,7 +70,7 @@ class ViewController: UIViewController {
             return
         }
         
-        if appNameLabel.text == "未登入"{
+        if appNameLabel.text == "notLogin".localize(){
             alertToUser(message: "請檢查網路")
             return
         }

@@ -15,3 +15,9 @@ extension UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
 }
+extension String{
+    func localize() -> String{
+        return NSLocalizedString(self, comment: "")
+    }
+}
+

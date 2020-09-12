@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  a207RTDB
+
+  Created by 申潤五 on 2020/9/12.
+  Copyright © 2020 申潤五. All rights reserved.
+*/
+
+"firstPageTitle"="歡迎來到 RTDB";
+"notLogin"="未登入";

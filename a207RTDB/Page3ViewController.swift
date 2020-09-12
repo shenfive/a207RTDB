@@ -82,6 +82,13 @@ class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "discCell") as! DiscTableViewCell
         cell.content.text = msgs[indexPath.row]["msg"] as? String
         cell.nickname.text = msgs[indexPath.row]["nickname"] as? String
+        
+        let time = msgs[indexPath.row]["time"] as! Double
+        let theTime = Date.init(timeIntervalSince1970: time/1000)
+        let dateFormate = DateFormatter()
+        dateFormate.dateFormat = "MM-dd HH:mm:ss"
+        cell.time.text = dateFormate.string(from: theTime)
+        
         return cell
     }
     
