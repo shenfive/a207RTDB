@@ -10,15 +10,7 @@ import UIKit
 import Firebase
 
 class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return msgs.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = msgs[indexPath.row]["msg"] as? String
-        return cell
-    }
+
     
     
     var nickName = ""
@@ -79,5 +71,19 @@ class Page3ViewController: UIViewController,UITableViewDataSource,UITableViewDel
         ref.childByAutoId().setValue(theMsgData)
         messageTF.text = ""
     }
+    
+    //MARK: Tableview Delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return msgs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "discCell") as! DiscTableViewCell
+        cell.content.text = msgs[indexPath.row]["msg"] as? String
+        cell.nickname.text = msgs[indexPath.row]["nickname"] as? String
+        return cell
+    }
+    
     
 }

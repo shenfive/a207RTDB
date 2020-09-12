@@ -17,6 +17,7 @@
 		BA15BA0D250370250067E7B6 /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA15BA0C250370250067E7B6 /* Page2ViewController.swift */; };
 		BA15BA0F250375FF0067E7B6 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA15BA0E250375FF0067E7B6 /* Tools.swift */; };
 		BA15BA11250383F60067E7B6 /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA15BA10250383F60067E7B6 /* Page3ViewController.swift */; };
+		BA6B7C1F250C65A900A73977 /* DiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6B7C1E250C65A900A73977 /* DiscTableViewCell.swift */; };
 		D1CF7E33099BBFA4240101F4 /* Pods_a207RTDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0843A306EFE843A860696D5E /* Pods_a207RTDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		BA15BA0C250370250067E7B6 /* Page2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
 		BA15BA0E250375FF0067E7B6 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		BA15BA10250383F60067E7B6 /* Page3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
+		BA6B7C1E250C65A900A73977 /* DiscTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				BA15BA0C250370250067E7B6 /* Page2ViewController.swift */,
 				BA15BA0E250375FF0067E7B6 /* Tools.swift */,
 				BA15BA10250383F60067E7B6 /* Page3ViewController.swift */,
+				BA6B7C1E250C65A900A73977 /* DiscTableViewCell.swift */,
 			);
 			path = a207RTDB;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				BA04BFEB250357D700FE5637 /* ViewController.swift in Sources */,
 				BA15BA11250383F60067E7B6 /* Page3ViewController.swift in Sources */,
 				BA04BFE7250357D700FE5637 /* AppDelegate.swift in Sources */,
+				BA6B7C1F250C65A900A73977 /* DiscTableViewCell.swift in Sources */,
 				BA15BA0D250370250067E7B6 /* Page2ViewController.swift in Sources */,
 				BA04BFE9250357D700FE5637 /* SceneDelegate.swift in Sources */,
 				BA15BA0F250375FF0067E7B6 /* Tools.swift in Sources */,
